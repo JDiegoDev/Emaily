@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const user = useSelector((state) => state.auth);
@@ -28,7 +29,9 @@ const Header = () => {
   return (
     <nav>
       <div className="nav-wrapper">
-        <a className="left brand-logo">Emaily</a>
+        <Link to={user ? "/surveys" : "/"} className="left brand-logo">
+          Emaily
+        </Link>
         <ul className="right">{renderHeaderOption()}</ul>
       </div>
     </nav>
